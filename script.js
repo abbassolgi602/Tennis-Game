@@ -13,10 +13,16 @@ canvas.addEventListener('mousemove', (e) => {
         mousePosition = e.offsetX - racket.w / 2;
     }
 });
-
+function randNumber() {
+    var randomNumber = Math.round(Math.random() * 2 - 1);
+    while (randomNumber == 0) {
+        var randomNumber = Math.round(Math.random() * 2 - 1);
+    }
+    return randomNumber;
+}
 var mainBall = { x: screenWidth / 2, y: screenHeight / 2, rad: 10 }
-var moveY = 1;
-var moveX = 1;
+var moveY = randNumber();
+var moveX = randNumber();
 function updateGame() {
     ctx.clearRect(0, 0, screenWidth, screenHeight);
     ctx.beginPath();
